@@ -5,6 +5,12 @@
 % terms.
 
 \documentclass[12pt,notitlepage,a4paper]{article}
+
+% Defines the \rd... macros used throughout this file.
+\IfFileExists{resume-details.sty}
+  {\usepackage{resume-details}}
+  {\usepackage{resume-details-defaults}}
+
 \usepackage{amssymb}
 \usepackage{array}
 \usepackage[usenames,dvipsnames]{color}
@@ -14,15 +20,9 @@
 \usepackage[colorlinks,
             urlcolor=RoyalBlue,
             pdftex,
-            pdfauthor={Birunthan Mohanathas},
-            pdftitle={Resume - Birunthan Mohanathas}]{hyperref}
+            pdfauthor={\rdName},
+            pdftitle={Resume - \rdName}]{hyperref}
 \usepackage[parfill]{parskip}
-
-\def \resAddress {Example Street}
-\def \resPhone {0123456789}
-\def \resEmail {email@example.com}
-\def \resUniEmail {uniemail@example.com}
-\IfFileExists{resumeprivate.sty}{\usepackage{resumeprivate}}{}
 
 \pagenumbering{gobble}
 
@@ -33,28 +33,63 @@
 % Use square bullets for the itemize items.
 \renewcommand{\labelitemi}{\rule[0.8mm]{1.1mm}{1.1mm}}
 
-\newcommand{\resHeading}[1]
+
+\newcommand{\rdheading}[1]
   { \vspace{2em}{\sffamily\LARGE #1}\vspace{0.5em} }
 
-\newenvironment{resList}
+\newenvironment{Rlist}
   { \begin{list}{\labelitemi}{\leftmargin=1.5em} \setlength{\itemsep}{8pt} }
   { \end{list} }
 
+% 1=title, 2=time, 3=url, 4=school, 5=description
+\newcommand{\rEducationItem}[5]
+  {
+    \item
+      \textbf{#1} \hfill \textsf{#2} \\
+      \textbf{\href{#3}{#4}} \vspace{0.2em} \\
+      #5
+  }
+
+% 1=title, 2=time, 3=url, 4=company, 5=location, 6=description
+\newcommand{\rExperienceItem}[6]
+  {
+    \item
+      \textbf{#1} \hfill \textsf{#2} \\
+      \textbf{\href{#3}{#4}} \hspace{0.1em} (#5) \vspace{0.2em} \\
+      #6
+  }
+
+
 \begin{document}
 
-{\sffamily\fontsize{32}{36}\selectfont Birunthan Mohanathas}
+{\sffamily\fontsize{32}{36}\selectfont \rdName}
 
-\resAddress
+\rdAddress
 
 \vspace{1em}
-\renewcommand{\arraystretch}{1.1}
 \begin{tabular}{r p{20cm}}
-  \faPhone          & \resPhone \\
-  \faSkype          & birunthan.mohanathas \\
-  \faEnvelopeSquare & \href{mailto:\resEmail}{\resEmail} \par
-                      \href{mailto:\resUniEmail}{\resUniEmail} \\
-  \faHome           & \href{http://poiru.net}{poiru.net} \\
-  \faGithub         & \href{https://github.com/poiru}{github.com/poiru} \\
+  \faPhone          & \rdPhone \\
+  \faSkype          & \rdSkype \\
+  \faEnvelopeSquare & \href{mailto:\rdEmail}{\rdEmail} \\
+  \faHome           & \href{http://\rdHomepage}{\rdHomepage} \\
+  \faGithub         & \href{https://github.com/\rdGitHub}{github.com/\rdGitHub} \\
 \end{tabular}
+
+\hypersetup{urlcolor=RedOrange}
+
+\rdheading{Education}
+\begin{Rlist}
+  \rdEducationItems
+\end{Rlist}
+
+\rdheading{Experience}
+\begin{Rlist}
+  \rdExperienceItems
+\end{Rlist}
+
+\rdheading{Other}
+\begin{Rlist}
+  \rdOtherItems
+\end{Rlist}
 
 \end{document}
