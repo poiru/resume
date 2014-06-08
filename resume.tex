@@ -18,6 +18,12 @@
             pdftitle={Resume - Birunthan Mohanathas}]{hyperref}
 \usepackage[parfill]{parskip}
 
+\def \resAddress {Example Street}
+\def \resPhone {0123456789}
+\def \resEmail {email@example.com}
+\def \resUniEmail {uniemail@example.com}
+\IfFileExists{resumeprivate.sty}{\usepackage{resumeprivate}}{}
+
 \pagenumbering{gobble}
 
 \setmainfont[Ligatures = TeX,
@@ -27,15 +33,28 @@
 % Use square bullets for the itemize items.
 \renewcommand{\labelitemi}{\rule[0.8mm]{1.1mm}{1.1mm}}
 
-\newcommand{\cvheading}[1]
+\newcommand{\resHeading}[1]
   { \vspace{2em}{\sffamily\LARGE #1}\vspace{0.5em} }
 
-\newenvironment{cvlist}
+\newenvironment{resList}
   { \begin{list}{\labelitemi}{\leftmargin=1.5em} \setlength{\itemsep}{8pt} }
   { \end{list} }
 
 \begin{document}
 
 {\sffamily\fontsize{32}{36}\selectfont Birunthan Mohanathas}
+
+\resAddress
+
+\vspace{1em}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{r p{20cm}}
+  \faPhone          & \resPhone \\
+  \faSkype          & birunthan.mohanathas \\
+  \faEnvelopeSquare & \href{mailto:\resEmail}{\resEmail} \par
+                      \href{mailto:\resUniEmail}{\resUniEmail} \\
+  \faHome           & \href{http://poiru.net}{poiru.net} \\
+  \faGithub         & \href{https://github.com/poiru}{github.com/poiru} \\
+\end{tabular}
 
 \end{document}
