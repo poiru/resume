@@ -1,0 +1,41 @@
+% Copyright (c) 2014 Birunthan Mohanathas
+%
+% Licensed under the MIT license <http://opensource.org/licenses/MIT>. This
+% file may not be copied, modified, or distributed except according to those
+% terms.
+
+\documentclass[12pt,notitlepage,a4paper]{article}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{fontawesome}
+\usepackage{fontspec}
+\usepackage[margin=2.7cm]{geometry}
+\usepackage[colorlinks,
+            urlcolor=RoyalBlue,
+            pdftex,
+            pdfauthor={Birunthan Mohanathas},
+            pdftitle={Resume - Birunthan Mohanathas}]{hyperref}
+\usepackage[parfill]{parskip}
+
+\pagenumbering{gobble}
+
+\setmainfont[Ligatures = TeX,
+             BoldFont = MyriadPro-Bold]{MyriadPro-Regular}
+\setsansfont[Ligatures = TeX]{MyriadPro-Light}
+
+% Use square bullets for the itemize items.
+\renewcommand{\labelitemi}{\rule[0.8mm]{1.1mm}{1.1mm}}
+
+\newcommand{\cvheading}[1]
+  { \vspace{2em}{\sffamily\LARGE #1}\vspace{0.5em} }
+
+\newenvironment{cvlist}
+  { \begin{list}{\labelitemi}{\leftmargin=1.5em} \setlength{\itemsep}{8pt} }
+  { \end{list} }
+
+\begin{document}
+
+{\sffamily\fontsize{32}{36}\selectfont Birunthan Mohanathas}
+
+\end{document}
