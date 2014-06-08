@@ -34,10 +34,10 @@
 \renewcommand{\labelitemi}{\rule[0.8mm]{1.1mm}{1.1mm}}
 
 
-\newcommand{\rdheading}[1]
+\newcommand{\rHeading}[1]
   { \vspace{2em}{\sffamily\LARGE #1}\vspace{0.5em} }
 
-\newenvironment{Rlist}
+\newenvironment{rList}
   { \begin{list}{\labelitemi}{\leftmargin=1.5em} \setlength{\itemsep}{8pt} }
   { \end{list} }
 
@@ -77,19 +77,19 @@
 
 \hypersetup{urlcolor=RedOrange}
 
-\rdheading{Education}
-\begin{Rlist}
+\rHeading{Education}
+\begin{rList}
   \rdEducationItems
-\end{Rlist}
+\end{rList}
 
-\rdheading{Experience}
-\begin{Rlist}
+\rHeading{Experience}
+\begin{rList}
   \rdExperienceItems
-\end{Rlist}
+\end{rList}
 
-\rdheading{Other}
-\begin{Rlist}
+\rHeading{Other}
+\begin{rList}
   \rdOtherItems
-\end{Rlist}
+\end{rList}
 
 \end{document}
