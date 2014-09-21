@@ -2,11 +2,12 @@ My resume.
 
 ### Requirements
 
-* lualatex
+* lualatex with fontawesome package
+* Myriad Pro fonts
 
 ### Building
 
-Simply use `make`.
+Use `make`.
 
-To change details, make a copy of `resume-details-defaults.sty` as
-`resume-details.sty` and change the values.
+To change details, make a copy of `defaults-resume-details.sty` as
+`resume-details.sty` and update the information.
