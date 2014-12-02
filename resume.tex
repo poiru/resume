@@ -42,8 +42,7 @@
 \newcommand{\rEducationItem}[5]
   {
     \item
-      \textbf{#1} \hfill \textsf{#2} \\
-      \textbf{\href{#3}{#4}} \vspace{0.2em} \\
+      \textbf{\href{#3}{#4:}} \textbf{#1} \hfill \textsf{#2} \vspace{0.3em} \\
       #5
   }
 
@@ -51,8 +50,7 @@
 \newcommand{\rExperienceItem}[6]
   {
     \item
-      \textbf{#1} \hfill \textsf{#2} \\
-      \textbf{\href{#3}{#4}} \hspace{0.1em} (#5) \vspace{0.2em} \\
+      \textbf{\href{#3}{#4:}} \textbf{#1} \hfill \textsf{#2} \vspace{0.3em} \\
       #6
   }
 
@@ -61,13 +59,11 @@
 
 {\sffamily\fontsize{32}{36}\selectfont \rdName}
 
-\rdAddress
-
 \vspace{1em}
 \renewcommand{\arraystretch}{1.1}
-\begin{tabular}{r p{20cm}}
+\begin{tabular}{c p{20cm}}
+  \faMapMarker      & \rdAddress \\
   \faPhone          & \rdPhone \\
-  \faSkype          & \rdSkype \\
   \faEnvelopeSquare & \href{mailto:\rdEmail}{\rdEmail} \\
   \faHome           & \href{http://\rdHomepage}{\rdHomepage} \\
   \faGithub         & \href{https://github.com/\rdGitHub}{github.com/\rdGitHub} \\
@@ -80,12 +76,12 @@
   \rdEducationItems
 \end{rList}
 
-\rHeading{Experience}
+\rHeading{Employment}
 \begin{rList}
   \rdExperienceItems
 \end{rList}
 
-\rHeading{Other}
+\rHeading{Experience}
 \begin{rList}
   \rdOtherItems
 \end{rList}
