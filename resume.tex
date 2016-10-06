@@ -13,63 +13,48 @@
 
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{fontawesome}
+\usepackage{xcolor}
 \usepackage[margin=2.7cm]{geometry}
-\usepackage[colorlinks,
-            urlcolor=RoyalBlue,
-            pdftex,
-            pdfauthor={\rdName},
-            pdftitle={Resume - \rdName}]{hyperref}
+\usepackage{hyperref}
 \usepackage[parfill]{parskip}
 
 \pagenumbering{gobble}
 
-\setmainfont[Ligatures = TeX,
-             BoldFont = MyriadPro-Bold]{MyriadPro-Regular}
-\setsansfont[Ligatures = TeX]{MyriadPro-Light}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[BoldFont = MyriadPro-Semibold]{MyriadPro-Light}
+\setsansfont[BoldFont = MyriadPro-Semibold]{MyriadPro-Regular}
 
-% Use square bullets for the itemize items.
-\renewcommand{\labelitemi}{\rule[0.8mm]{1.1mm}{1.1mm}}
+\definecolor{black}{gray}{0.0}
+\definecolor{gray}{gray}{0.2}
+\definecolor{light-gray}{gray}{0.6}
+\definecolor{green}{RGB}{113,153,3}
 
+\color{gray}
 
 \newcommand{\rHeading}[1]
-  { \vspace{2em}{\sffamily\LARGE #1}\vspace{0.5em} }
+  { \vspace{3em}{\color{black}\Large #1}\vspace{0.3em} }
 
 \newenvironment{rList}
-  { \begin{list}{\labelitemi}{\leftmargin=1.5em} \setlength{\itemsep}{8pt} }
+  { \begin{list}{}{\leftmargin=0.05em} \setlength{\itemsep}{8pt} }
   { \end{list} }
 
-% 1=title, 2=time, 3=url, 4=school, 5=description
-\newcommand{\rEducationItem}[5]
+\newcommand{\itemheading}[3]
   {
-    \item
-      \textbf{\href{#3}{#4:}} \textbf{#1} \hfill \textsf{#2} \vspace{0.3em} \\
-      #5
+    \textbf{\color{black} #1} \hspace{0.1em} \textsf{#2} \hfill {\color{light-gray}\small #3} \vspace{0.2em}
   }
-
-% 1=title, 2=time, 3=url, 4=company, 5=location, 6=description
-\newcommand{\rExperienceItem}[6]
-  {
-    \item
-      \textbf{\href{#3}{#4:}} \textbf{#1} \hfill \textsf{#2} \vspace{0.3em} \\
-      #6
-  }
-
 
 \begin{document}
 
-{\sffamily\fontsize{32}{36}\selectfont \rdName}
+{\color{green}\LARGE \textsf{\rdName}}
 
-\vspace{1em}
+\vspace{0.5em}
 \renewcommand{\arraystretch}{1.1}
-\begin{tabular}{c p{20cm}}
-  \faMapMarker      & \rdAddress \\
-  \faPhone          & \rdPhone \\
-  \faEnvelopeSquare & \href{mailto:\rdEmail}{\rdEmail} \\
-  \faHome           & \href{http://\rdHomepage}{\rdHomepage} \\
-  \faGithub         & \href{https://github.com/\rdGitHub}{github.com/\rdGitHub} \\
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}c l@{}}
+  \raisebox{-0.4pt}{\faEnvelopeSquare} & \href{mailto:\rdEmail}{\rdEmail} \\
+  \raisebox{-0.8pt}{\faGithub}         & \href{https://github.com/\rdGitHub}{github.com/\rdGitHub} \\
+  \raisebox{-0.8pt}{\faHome}           & \href{http://\rdHomepage}{\rdHomepage} \\
 \end{tabular}
-
-\hypersetup{urlcolor=RedOrange}
 
 \rHeading{Education}
 \begin{rList}
